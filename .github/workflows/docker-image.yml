@@ -89,5 +89,3 @@ jobs:
 
       - name: Push GestionOrdinateurs.Gateway
         run: docker push ${{ env.DOCKER_REGISTRY }}/GestionOrdinateurs.Gateway:latest
-		
-	  
