@@ -8,21 +8,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient("ClientGestionAPI", client =>
 {
-    client.BaseAddress = new Uri("http://localhost:5040/api/");
-});
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowBlazorClient", policy =>
-        policy.WithOrigins("http://localhost:5000")
-            .AllowAnyHeader()
-            .AllowAnyMethod());
+    client.BaseAddress = new Uri("http://go_api:5158/api/");
 });
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 app.UseHttpsRedirection();
-app.UseCors("AllowBlazorClient");
 app.UseSwagger();
 app.UseSwaggerUI();
 app.MapControllers();

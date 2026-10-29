@@ -73,13 +73,6 @@ builder.Services.AddAuthentication(options =>
         }
     };
 });
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowBlazorClient", policy =>
-        policy.WithOrigins("http://localhost:5000")
-            .AllowAnyHeader()
-            .AllowAnyMethod());
-});
 builder.Services.AddScoped<IOrdinateurService, OrdinateurService>();
 builder.Services.AddScoped<IReparationService, ReparationService>();
 builder.Services.AddScoped<IUsersService, UsersService>();
@@ -115,7 +108,6 @@ using(var scope = app.Services.CreateScope())
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.UseCors("AllowBlazorClient");
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();

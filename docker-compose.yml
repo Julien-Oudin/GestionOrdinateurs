@@ -34,7 +34,7 @@ services:
     networks:
       - appnet
 
-  authentification-api:
+  authentification_api:
     image: ${DOCKER_ACCOUNT}/authentification_api:latest
     build:
       context: .
@@ -48,10 +48,11 @@ services:
     depends_on:
       - postgres
       - keycloak
+      - go_api
     networks:
       - appnet
 
-  go-api:
+  go_api:
     image: ${DOCKER_ACCOUNT}/go_api:latest
     build:
       context: .
@@ -68,7 +69,7 @@ services:
     networks:
       - appnet
 
-  go-client:
+  go_client:
     image: ${DOCKER_ACCOUNT}/go_client:latest
     build:
       context: .
@@ -76,12 +77,9 @@ services:
     container_name: go_client
     ports:
       - "5159:5159"
-    environment:
-      ASPNETCORE_ENVIRONMENT: Development
-      ASPNETCORE_URLS: http://+:5159
     depends_on:
-      - postgres
-      - keycloak
+      - authentification_api
+      - go_gateway
     networks:
       - appnet
 
@@ -99,5 +97,12 @@ services:
     depends_on:
       - postgres
       - keycloak
+      - go_api
     networks:
       - appnet
+networks:
+  appnet:
+
+volumes:
+  postgres_data:
+  keycloak_data:
