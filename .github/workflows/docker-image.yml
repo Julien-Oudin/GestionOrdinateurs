@@ -1,4 +1,4 @@
-name: xxxxxxxxxx
+name: GestionOrdinateursProject
 
 on:
   workflow_dispatch:
