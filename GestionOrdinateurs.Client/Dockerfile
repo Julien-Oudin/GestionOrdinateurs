@@ -13,18 +13,10 @@ RUN dotnet restore ./GestionOrdinateurs.Client/GestionOrdinateurs.Client.csproj
 # Copy the remaining source code
 COPY GestionOrdinateurs.Shared/ ./GestionOrdinateurs.Shared/
 COPY GestionOrdinateurs.Client/ ./GestionOrdinateurs.Client/
-RUN dotnet publish ./GestionOrdinateurs.Client/GestionOrdinateurs.Client.csproj -c Release -o out
+RUN dotnet publish ./GestionOrdinateurs.Client/GestionOrdinateurs.Client.csproj -c Release -o /app/publish
 
-# Build runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime
-WORKDIR /app
-COPY --from=build /app/out ./
-
-# Set environment variables if needed (e.g., ASPNETCORE_ENVIRONMENT)
-ENV ASPNETCORE_ENVIRONMENT=Development
-
-# Expose port 5159
+# Special case for the nginx file, to make it run on docker
+FROM nginx:alpine AS runtime
+COPY GestionOrdinateurs.Client/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/publish/wwwroot/ /usr/share/nginx/html/
 EXPOSE 5159
-
-# Define the entry point
-ENTRYPOINT ["dotnet", "GestionOrdinateurs.Client.dll"]

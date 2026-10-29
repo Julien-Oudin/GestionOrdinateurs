@@ -18,11 +18,11 @@ builder.Services.AddScoped<AuthenticationStateProvider>(services =>
 builder.Services.AddTransient<SessionTokenHandler>();
 builder.Services.AddHttpClient("AuthenticationApi", client =>
 {
-    client.BaseAddress = new Uri("http://localhost:5211/");
+    client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
 });
 builder.Services.AddHttpClient("Gateway", client =>
 {
-    client.BaseAddress = new Uri("http://localhost:5010/");
+    client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
 }).AddHttpMessageHandler<SessionTokenHandler>();
 
 await builder.Build().RunAsync();
