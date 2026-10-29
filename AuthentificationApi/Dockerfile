@@ -13,7 +13,7 @@ RUN dotnet restore ./GestionOrdinateurs.Shared
 # Copy the remaining source code
 COPY ./AuthentificationApi/ ./AuthentificationApi/
 COPY ./GestionOrdinateurs.Shared/ ./GestionOrdinateurs.Shared/
-RUN dotnet publish ./AuthentificationApi -c Release -o out
+RUN dotnet publish ./authentification_api -c Release -o out
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime
