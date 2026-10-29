@@ -65,27 +65,27 @@ jobs:
       #################################################
 
       - name: Build GestionOrdinateurs.Client
-        run: docker build -t ${{ env.DOCKER_REGISTRY }}/GestionOrdinateurs.Client:latest -f GestionOrdinateurs.Client/Dockerfile .
+        run: docker build -t ${{ env.DOCKER_REGISTRY }}/go_client:latest -f GestionOrdinateurs.Client/Dockerfile .
 
       - name: Push GestionOrdinateurs.Client
-        run: docker push ${{ env.DOCKER_REGISTRY }}/GestionOrdinateurs.Client:latest
+        run: docker push ${{ env.DOCKER_REGISTRY }}/go_lient:latest
 
       #################################################
       # API
       #################################################
 
       - name: Build GestionOrdinateurs.API
-        run: docker build -t ${{ env.DOCKER_REGISTRY }}/GestionOrdinateurs.API:latest -f GestionOrdinateurs.API/Dockerfile .
+        run: docker build -t ${{ env.DOCKER_REGISTRY }}/go_api:latest -f GestionOrdinateurs.API/Dockerfile .
 
       - name: Push GestionOrdinateurs.API
-        run: docker push ${{ env.DOCKER_REGISTRY }}/GestionOrdinateurs.API:latest
+        run: docker push ${{ env.DOCKER_REGISTRY }}/go_api:latest
 
       #################################################
       # Gateway
       #################################################
 
       - name: Build GestionOrdinateurs.Gateway
-        run: docker build -t ${{ env.DOCKER_REGISTRY }}/GestionOrdinateurs.Gateway:latest -f GestionOrdinateurs.Gateway/Dockerfile .
+        run: docker build -t ${{ env.DOCKER_REGISTRY }}/go_gateway:latest -f GestionOrdinateurs.Gateway/Dockerfile .
 
       - name: Push GestionOrdinateurs.Gateway
-        run: docker push ${{ env.DOCKER_REGISTRY }}/GestionOrdinateurs.Gateway:latest
+        run: docker push ${{ env.DOCKER_REGISTRY }}/go_gateway:latest
