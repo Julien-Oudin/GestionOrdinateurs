@@ -9,8 +9,8 @@ COPY ../GestionOrdinateurs.Shared/GestionOrdinateurs.Shared.csproj ./GestionOrdi
 RUN dotnet restore ./GestionOrdinateurs.Shared
 
 # Copy the remaining source code
-COPY ./GestionOrdinateurs.Shared/ ./GestionOrdinateurs.Shared/
-RUN dotnet publish ./go_api -c Release -o out
+COPY ./GestionOrdinateurs.API/ ./GestionOrdinateurs.API/
+RUN dotnet publish ./GestionOrdinateurs.API/ -c Release -o out
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime

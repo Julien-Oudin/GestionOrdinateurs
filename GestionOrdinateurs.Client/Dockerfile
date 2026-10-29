@@ -10,7 +10,7 @@ RUN dotnet restore ./GestionOrdinateurs.Shared
 
 # Copy the remaining source code
 COPY ./GestionOrdinateurs.Shared/ ./GestionOrdinateurs.Shared/
-RUN dotnet publish ./go_client -c Release -o out
+RUN dotnet publish ./GestionOrdinateurs.Client -c Release -o out
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime
