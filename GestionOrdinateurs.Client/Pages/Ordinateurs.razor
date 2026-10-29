@@ -1,0 +1,67 @@
+@page "/ordinateurs"
+@inject IHttpClientFactory HttpClientFactory
+@inject ILogger<Ordinateurs> Logger
+
+<PageTitle>Ordinateurs</PageTitle>
+
+<h1>Ordinateurs</h1>
+
+@if (message is not null)
+{
+    <p role="alert">@message</p>
+}
+else if (ordinateurs is null)
+{
+    <p>Chargement...</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Devise</th>
+                <th>Vendu</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ordinateur in ordinateurs)
+            {
+                <tr>
+                    <td>@ordinateur.Nom</td>
+                    <td>@ordinateur.Prix.ToString("0.00")</td>
+                    <td>€</td>
+                    <td>@(ordinateur.Vendu ? "Oui" : "Non")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Ordinateur>? ordinateurs;
+    private string? message;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            using var response = await HttpClientFactory.CreateClient("Gateway")
+                .GetAsync("api/Ordinateurs");
+
+            if (!response.IsSuccessStatusCode)
+            {
+                message = $"La Gateway a répondu avec le statut {(int)response.StatusCode}.";
+                return;
+            }
+
+            ordinateurs = await response.Content.ReadFromJsonAsync<List<Ordinateur>>();
+        }
+        catch (HttpRequestException exception)
+        {
+            Logger.LogError(exception, "Impossible de récupérer les ordinateurs via la Gateway.");
+            message = "Impossible de récupérer les ordinateurs via la Gateway.";
+        }
+    }
+}

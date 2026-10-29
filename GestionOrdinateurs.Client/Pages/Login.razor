@@ -1,0 +1,82 @@
+@page "/login"
+@inject IHttpClientFactory HttpClientFactory
+@inject ISessionStorageService SessionStorage
+@inject SessionAuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager Navigation
+@inject ILogger<Login> Logger
+
+<PageTitle>Connexion</PageTitle>
+
+<h1>Connexion</h1>
+
+<EditForm Model="loginRequest" OnValidSubmit="Connecter">
+    <DataAnnotationsValidator />
+    <div class="mb-3">
+        <label for="login" class="form-label">Login</label>
+        <InputText id="login" class="form-control" @bind-Value="loginRequest.Login" />
+        <ValidationMessage For="() => loginRequest.Login" />
+    </div>
+    <button type="submit" class="btn btn-primary" disabled="@isSubmitting">Connecter</button>
+</EditForm>
+
+@if (!string.IsNullOrWhiteSpace(message))
+{
+    <p class="mt-3" role="alert">@message</p>
+}
+
+@code {
+    private readonly LoginRequest loginRequest = new();
+    private bool isSubmitting;
+    private string? message;
+
+    private async Task Connecter()
+    {
+        isSubmitting = true;
+        message = null;
+
+        try
+        {
+            using var response = await HttpClientFactory.CreateClient("AuthenticationApi")
+                .PostAsJsonAsync("auth/login", loginRequest);
+
+            if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                message = "Cet utilisateur n'existe pas.";
+                return;
+            }
+
+            if (!response.IsSuccessStatusCode)
+            {
+                message = $"La connexion a échoué ({(int)response.StatusCode}).";
+                return;
+            }
+
+            var token = await response.Content.ReadAsStringAsync();
+            if (string.IsNullOrWhiteSpace(token))
+            {
+                message = "L'API d'authentification n'a pas renvoyé de token.";
+                return;
+            }
+
+            // Le gestionnaire HTTP ajoute ce token aux appels vers la Gateway.
+            await SessionStorage.SetItemAsync("jwt", token);
+            AuthenticationStateProvider.NotifyUserAuthentication(token);
+            Navigation.NavigateTo("/");
+        }
+        catch (HttpRequestException exception)
+        {
+            Logger.LogError(exception, "L'API d'authentification est indisponible.");
+            message = "L'API d'authentification est indisponible.";
+        }
+        finally
+        {
+            isSubmitting = false;
+        }
+    }
+
+    private sealed class LoginRequest
+    {
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Login { get; set; } = string.Empty;
+    }
+}

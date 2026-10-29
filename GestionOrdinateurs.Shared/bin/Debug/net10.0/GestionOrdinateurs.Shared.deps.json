@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "GestionOrdinateurs.Shared/1.0.0": {
+        "runtime": {
+          "GestionOrdinateurs.Shared.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GestionOrdinateurs.Shared/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

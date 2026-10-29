@@ -1,0 +1,74 @@
+@page "/reparations"
+@inject IHttpClientFactory HttpClientFactory
+@inject ILogger<Reparations> Logger
+
+<PageTitle>Historique des réparations</PageTitle>
+
+<h1>Historique des réparations</h1>
+
+@if (message is not null)
+{
+    <p role="alert">@message</p>
+}
+else if (reparations is null)
+{
+    <p>Chargement...</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ordinateur</th>
+                <th>Technicien</th>
+                <th>Type de réparation</th>
+                <th>Date d'intervention</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var reparation in reparations)
+            {
+                <tr>
+                    <td>@reparation.NomOrdinateur</td>
+                    <td>@reparation.Technicien</td>
+                    <td>@reparation.TypeReparation</td>
+                    <td>@reparation.DateIntervention.ToString("g")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<HistoriqueReparationRecord>? reparations;
+    private string? message;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            using var response = await HttpClientFactory.CreateClient("Gateway")
+                .GetAsync("api/Reparations/historique");
+
+            if (!response.IsSuccessStatusCode)
+            {
+                message = $"La Gateway a répondu avec le statut {(int)response.StatusCode}.";
+                return;
+            }
+
+            reparations = await response.Content.ReadFromJsonAsync<List<HistoriqueReparationRecord>>();
+        }
+        catch (HttpRequestException exception)
+        {
+            Logger.LogError(exception, "Impossible de récupérer l'historique via la Gateway.");
+            message = "Impossible de récupérer l'historique via la Gateway.";
+        }
+    }
+
+    private sealed record HistoriqueReparationRecord(
+        int OrdinateurId,
+        string NomOrdinateur,
+        string Technicien,
+        string TypeReparation,
+        DateTime DateIntervention);
+}

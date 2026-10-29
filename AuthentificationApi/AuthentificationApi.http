@@ -1,0 +1,19 @@
+@AuthentificationApi_HostAddress = http://localhost:5211
+
+### Obtenir un JWT avec le login d'un utilisateur existant
+POST {{AuthentificationApi_HostAddress}}/auth/login
+Content-Type: application/json
+
+{
+  "login": "user1"
+}
+
+### Un utilisateur inconnu renvoie 404
+POST {{AuthentificationApi_HostAddress}}/auth/login
+Content-Type: application/json
+
+{
+  "login": "inconnu"
+}
+
+###
