@@ -9,7 +9,7 @@ COPY ../GestionOrdinateurs.Shared/GestionOrdinateurs.Shared.csproj ./GestionOrdi
 RUN dotnet restore ./GestionOrdinateurs.Shared
 
 # Copy the remaining source code
-COPY ./GestionOrdinateurs.Shared/ ./GestionOrdinateurs.Shared/
+COPY ./GestionOrdinateurs.Client/ ./GestionOrdinateurs.Client/
 RUN dotnet publish ./GestionOrdinateurs.Client -c Release -o out
 
 # Build runtime image
