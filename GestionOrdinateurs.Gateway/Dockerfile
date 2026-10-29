@@ -24,4 +24,4 @@ ENV ASPNETCORE_ENVIRONMENT=Development
 EXPOSE 5160
 
 # Define the entry point
-ENTRYPOINT ["dotnet", "GestionOrdinateurs_Gateway.dll"]
+ENTRYPOINT ["dotnet", "GestionOrdinateurs.Gateway.dll"]
