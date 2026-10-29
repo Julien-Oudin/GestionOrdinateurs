@@ -55,10 +55,10 @@ jobs:
       #################################################
 
       - name: Build AuthentificationApi
-        run: docker build -t ${{ env.DOCKER_REGISTRY }}/authentificationapi:latest -f AuthentificationApi/Dockerfile .
+        run: docker build -t ${{ env.DOCKER_REGISTRY }}/authentification_api:latest -f AuthentificationApi/Dockerfile .
 
       - name: Push AuthentificationApi
-        run: docker push ${{ env.DOCKER_REGISTRY }}/authentificationapi:latest
+        run: docker push ${{ env.DOCKER_REGISTRY }}/authentification_api:latest
 
       #################################################
       # Client
@@ -68,7 +68,7 @@ jobs:
         run: docker build -t ${{ env.DOCKER_REGISTRY }}/go_client:latest -f GestionOrdinateurs.Client/Dockerfile .
 
       - name: Push GestionOrdinateurs.Client
-        run: docker push ${{ env.DOCKER_REGISTRY }}/go_lient:latest
+        run: docker push ${{ env.DOCKER_REGISTRY }}/go_client:latest
 
       #################################################
       # API
