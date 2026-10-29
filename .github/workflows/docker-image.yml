@@ -1,0 +1,93 @@
+name: xxxxxxxxxx
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+env:
+  DOCKER_REGISTRY: ${{ secrets.DOCKER_ACCOUNT }}
+
+jobs:
+
+  tests:
+    runs-on: ubuntu-latest
+  
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+  
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+  
+      - name: Restore
+        run: dotnet restore
+  
+      - name: Build solution
+        run: dotnet build --no-restore
+  
+      - name: Run tests
+        run: dotnet test MonprojetTest.Tests/MonprojetTest.Tests.csproj --no-build --verbosity normal
+
+  docker:
+    runs-on: ubuntu-latest
+    needs: tests
+    environment: dev
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Login Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+        
+      - name: Afficher l'arborescence
+        run: |
+         pwd
+         ls -la
+         find . -name Dockerfile
+    
+      #################################################
+      # AuthentificationApi
+      #################################################
+
+      - name: Build AuthentificationApi
+        run: docker build -t ${{ env.DOCKER_REGISTRY }}/authentificationapi:latest -f AuthentificationApi/Dockerfile .
+
+      - name: Push AuthentificationApi
+        run: docker push ${{ env.DOCKER_REGISTRY }}/authentificationapi:latest
+
+      #################################################
+      # Client
+      #################################################
+
+      - name: Build GestionOrdinateurs.Client
+        run: docker build -t ${{ env.DOCKER_REGISTRY }}/GestionOrdinateurs.Client:latest -f GestionOrdinateurs.Client/Dockerfile .
+
+      - name: Push GestionOrdinateurs.Client
+        run: docker push ${{ env.DOCKER_REGISTRY }}/GestionOrdinateurs.Client:latest
+
+      #################################################
+      # API
+      #################################################
+
+      - name: Build GestionOrdinateurs.API
+        run: docker build -t ${{ env.DOCKER_REGISTRY }}/GestionOrdinateurs.API:latest -f GestionOrdinateurs.API/Dockerfile .
+
+      - name: Push GestionOrdinateurs.API
+        run: docker push ${{ env.DOCKER_REGISTRY }}/GestionOrdinateurs.API:latest
+
+      #################################################
+      # Gateway
+      #################################################
+
+      - name: Build GestionOrdinateurs.Gateway
+        run: docker build -t ${{ env.DOCKER_REGISTRY }}/GestionOrdinateurs.Gateway:latest -f GestionOrdinateurs.Gateway/Dockerfile .
+
+      - name: Push GestionOrdinateurs.Gateway
+        run: docker push ${{ env.DOCKER_REGISTRY }}/GestionOrdinateurs.Gateway:latest
+		
+	  

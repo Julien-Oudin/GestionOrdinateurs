@@ -6,7 +6,7 @@ builder.Services.AddReverseProxy()
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowBlazorClient", policy =>
-        policy.WithOrigins("http://localhost:5098")
+        policy.WithOrigins("http://localhost:5000")
             .AllowAnyHeader()
             .AllowAnyMethod());
 });
