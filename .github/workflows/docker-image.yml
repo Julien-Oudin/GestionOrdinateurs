@@ -46,9 +46,9 @@ jobs:
         
       - name: Afficher l'arborescence
         run: |
-         pwd
-         ls -la
-         find . -name Dockerfile
+          pwd
+          ls -la
+          find . -name Dockerfile
     
       #################################################
       # AuthentificationApi
