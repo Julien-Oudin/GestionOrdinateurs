@@ -8,6 +8,7 @@ on:
 
 env:
   DOCKER_ACCOUNT: ${{ secrets.DOCKER_ACCOUNT }}
+  KEYCLOAK_CLIENT_SECRET: ${{ secrets.KEYCLOAK_CLIENT_SECRET }}
 
 jobs:
 
