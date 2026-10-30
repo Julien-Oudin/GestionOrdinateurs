@@ -13,8 +13,41 @@ namespace AuthentificationApi.Controllers;
 public sealed class AuthenticationController(
     IConfiguration configuration,
     IHttpClientFactory httpClientFactory,
+    MySecureApi.KeycloakAuthService keycloakAuthService,
     ILogger<AuthenticationController> logger) : ControllerBase
 {
+    /// <summary>
+    /// Échange les identifiants de l'utilisateur contre un jeton d'accès Keycloak.
+    /// </summary>
+    [HttpPost("keycloak/login")]
+    [ProducesResponseType<MySecureApi.TokenResponse>(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status502BadGateway)]
+    public async Task<ActionResult<MySecureApi.TokenResponse>> LoginWithKeycloak(
+        [FromBody] KeycloakLoginRequest request,
+        CancellationToken cancellationToken)
+    {
+        try
+        {
+            var token = await keycloakAuthService.LoginAsync(
+                request.Username,
+                request.Password,
+                cancellationToken);
+
+            return token is null ? Unauthorized() : Ok(token);
+        }
+        catch (HttpRequestException exception)
+        {
+            logger.LogError(exception, "Keycloak could not complete the login request.");
+            return StatusCode(StatusCodes.Status502BadGateway, "Le service Keycloak est indisponible.");
+        }
+        catch (System.Text.Json.JsonException exception)
+        {
+            logger.LogError(exception, "Keycloak returned an invalid token response.");
+            return StatusCode(StatusCodes.Status502BadGateway, "Keycloak a renvoyé une réponse invalide.");
+        }
+    }
+
     /// <summary>
     /// Récupère l'utilisateur par son login et renvoie un JWT valable 15 minutes.
     /// </summary>

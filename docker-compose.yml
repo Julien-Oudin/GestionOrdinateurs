@@ -20,8 +20,7 @@ services:
     environment:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
-      KC_HOSTNAME: localhost
-      KC_HOSTNAME_PORT: 8180
+      KC_HOSTNAME: http://localhost:8180
       KC_HTTP_ENABLED: "true"
       KC_HEALTH_ENABLED: "true"
       KC_HOSTNAME_STRICT_BACKCHANNEL: "false"
@@ -45,6 +44,7 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: http://+:5157
+      Keycloak__ClientSecret: ${KEYCLOAK_CLIENT_SECRET:?Définissez KEYCLOAK_CLIENT_SECRET dans .env}
     depends_on:
       - postgres
       - keycloak
@@ -63,6 +63,9 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: http://+:5158
+      ConnectionStrings__ParcInformatique: "Data Source=/data/parcinfo.db"
+    volumes:
+      - go_api_data:/data
     depends_on:
       - postgres
       - keycloak
@@ -106,3 +109,4 @@ networks:
 volumes:
   postgres_data:
   keycloak_data:
+  go_api_data:

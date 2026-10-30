@@ -11,6 +11,8 @@ builder.Services.AddHttpClient("ClientGestionAPI", client =>
     client.BaseAddress = new Uri("http://go_api:5158/api/");
 });
 
+builder.Services.AddHttpClient<MySecureApi.KeycloakAuthService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
