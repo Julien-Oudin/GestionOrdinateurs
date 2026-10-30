@@ -1,4 +1,4 @@
-@AuthentificationApi_HostAddress = http://localhost:5211
+@AuthentificationApi_HostAddress = http://authentification_api:5157
 
 ### Obtenir un JWT avec le login d'un utilisateur existant
 POST {{AuthentificationApi_HostAddress}}/auth/login

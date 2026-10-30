@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "xrc2mybCVfc=",
+  "dgSpecHash": "+p4AV/oI+u4=",
   "success": true,
   "projectFilePath": "/home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.Client/GestionOrdinateurs.Client.csproj",
   "expectedPackageFiles": [
     "/home/joudin/.nuget/packages/blazored.sessionstorage/2.4.0/blazored.sessionstorage.2.4.0.nupkg.sha512",
-    "/home/joudin/.nuget/packages/microsoft.aspnetcore.app.internal.assets/10.0.12/microsoft.aspnetcore.app.internal.assets.10.0.12.nupkg.sha512",
+    "/home/joudin/.nuget/packages/microsoft.aspnetcore.app.internal.assets/10.0.13/microsoft.aspnetcore.app.internal.assets.10.0.13.nupkg.sha512",
     "/home/joudin/.nuget/packages/microsoft.aspnetcore.authorization/10.0.12/microsoft.aspnetcore.authorization.10.0.12.nupkg.sha512",
     "/home/joudin/.nuget/packages/microsoft.aspnetcore.components/10.0.12/microsoft.aspnetcore.components.10.0.12.nupkg.sha512",
     "/home/joudin/.nuget/packages/microsoft.aspnetcore.components.analyzers/10.0.12/microsoft.aspnetcore.components.analyzers.10.0.12.nupkg.sha512",
@@ -16,7 +16,7 @@
     "/home/joudin/.nuget/packages/microsoft.aspnetcore.components.webassembly.devserver/10.0.12/microsoft.aspnetcore.components.webassembly.devserver.10.0.12.nupkg.sha512",
     "/home/joudin/.nuget/packages/microsoft.aspnetcore.metadata/10.0.12/microsoft.aspnetcore.metadata.10.0.12.nupkg.sha512",
     "/home/joudin/.nuget/packages/microsoft.bcl.cryptography/10.0.2/microsoft.bcl.cryptography.10.0.2.nupkg.sha512",
-    "/home/joudin/.nuget/packages/microsoft.dotnet.hotreload.webassembly.browser/10.0.112/microsoft.dotnet.hotreload.webassembly.browser.10.0.112.nupkg.sha512",
+    "/home/joudin/.nuget/packages/microsoft.dotnet.hotreload.webassembly.browser/10.0.113/microsoft.dotnet.hotreload.webassembly.browser.10.0.113.nupkg.sha512",
     "/home/joudin/.nuget/packages/microsoft.extensions.configuration/10.0.12/microsoft.extensions.configuration.10.0.12.nupkg.sha512",
     "/home/joudin/.nuget/packages/microsoft.extensions.configuration.abstractions/10.0.12/microsoft.extensions.configuration.abstractions.10.0.12.nupkg.sha512",
     "/home/joudin/.nuget/packages/microsoft.extensions.configuration.binder/10.0.12/microsoft.extensions.configuration.binder.10.0.12.nupkg.sha512",
@@ -42,10 +42,10 @@
     "/home/joudin/.nuget/packages/microsoft.identitymodel.tokens/8.19.2/microsoft.identitymodel.tokens.8.19.2.nupkg.sha512",
     "/home/joudin/.nuget/packages/microsoft.jsinterop/10.0.12/microsoft.jsinterop.10.0.12.nupkg.sha512",
     "/home/joudin/.nuget/packages/microsoft.jsinterop.webassembly/10.0.12/microsoft.jsinterop.webassembly.10.0.12.nupkg.sha512",
-    "/home/joudin/.nuget/packages/microsoft.net.illink.tasks/10.0.12/microsoft.net.illink.tasks.10.0.12.nupkg.sha512",
-    "/home/joudin/.nuget/packages/microsoft.net.sdk.webassembly.pack/10.0.12/microsoft.net.sdk.webassembly.pack.10.0.12.nupkg.sha512",
+    "/home/joudin/.nuget/packages/microsoft.net.illink.tasks/10.0.13/microsoft.net.illink.tasks.10.0.13.nupkg.sha512",
+    "/home/joudin/.nuget/packages/microsoft.net.sdk.webassembly.pack/10.0.13/microsoft.net.sdk.webassembly.pack.10.0.13.nupkg.sha512",
     "/home/joudin/.nuget/packages/system.identitymodel.tokens.jwt/8.19.2/system.identitymodel.tokens.jwt.8.19.2.nupkg.sha512",
-    "/home/joudin/.nuget/packages/microsoft.netcore.app.runtime.mono.browser-wasm/10.0.12/microsoft.netcore.app.runtime.mono.browser-wasm.10.0.12.nupkg.sha512"
+    "/home/joudin/.nuget/packages/microsoft.netcore.app.runtime.mono.browser-wasm/10.0.13/microsoft.netcore.app.runtime.mono.browser-wasm.10.0.13.nupkg.sha512"
   ],
   "logs": []
 }

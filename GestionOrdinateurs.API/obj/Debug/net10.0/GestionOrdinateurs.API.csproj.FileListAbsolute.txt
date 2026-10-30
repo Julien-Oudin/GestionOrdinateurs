@@ -1,11 +1,8 @@
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/bin/Debug/net10.0/appsettings.Development.json
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/bin/Debug/net10.0/appsettings.json
+/home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/bin/Debug/net10.0/parcinfo.db
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/bin/Debug/net10.0/GestionOrdinateurs.API.staticwebassets.endpoints.json
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/bin/Debug/net10.0/GestionOrdinateurs.API
-/home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/bin/Debug/net10.0/GestionOrdinateurs.API.deps.json
-/home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/bin/Debug/net10.0/GestionOrdinateurs.API.runtimeconfig.json
-/home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/bin/Debug/net10.0/GestionOrdinateurs.API.dll
-/home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/bin/Debug/net10.0/GestionOrdinateurs.API.pdb
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/bin/Debug/net10.0/Humanizer.dll
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/bin/Debug/net10.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/bin/Debug/net10.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
@@ -145,6 +142,7 @@
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/obj/Debug/net10.0/GestionOrdinateurs.API.csproj.CoreCompileInputs.cache
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/obj/Debug/net10.0/GestionOrdinateurs.API.MvcApplicationPartsAssemblyInfo.cs
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/obj/Debug/net10.0/GestionOrdinateurs.API.MvcApplicationPartsAssemblyInfo.cache
+/home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/obj/Debug/net10.0/GestionOrdinateurs.API.sourcelink.json
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/obj/Debug/net10.0/rjimswa.dswa.cache.json
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/obj/Debug/net10.0/rjsmrazor.dswa.cache.json
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json
@@ -158,5 +156,9 @@
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/obj/Debug/net10.0/GestionOrdinateurs.API.dll
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/obj/Debug/net10.0/refint/GestionOrdinateurs.API.dll
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/obj/Debug/net10.0/GestionOrdinateurs.API.pdb
+/home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/bin/Debug/net10.0/GestionOrdinateurs.API.deps.json
+/home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/bin/Debug/net10.0/GestionOrdinateurs.API.runtimeconfig.json
+/home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/bin/Debug/net10.0/GestionOrdinateurs.API.dll
+/home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/bin/Debug/net10.0/GestionOrdinateurs.API.pdb
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/obj/Debug/net10.0/GestionOrdinateurs.API.genruntimeconfig.cache
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.API/obj/Debug/net10.0/ref/GestionOrdinateurs.API.dll

@@ -5,6 +5,7 @@
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.Shared/obj/Debug/net10.0/GestionOrdinateurs.Shared.AssemblyInfoInputs.cache
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.Shared/obj/Debug/net10.0/GestionOrdinateurs.Shared.AssemblyInfo.cs
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.Shared/obj/Debug/net10.0/GestionOrdinateurs.Shared.csproj.CoreCompileInputs.cache
+/home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.Shared/obj/Debug/net10.0/GestionOrdinateurs.Shared.sourcelink.json
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.Shared/obj/Debug/net10.0/GestionOrdinateurs.Shared.dll
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.Shared/obj/Debug/net10.0/refint/GestionOrdinateurs.Shared.dll
 /home/joudin/Efrei/Cs/GestionOrdinateurs/GestionOrdinateurs.Shared/obj/Debug/net10.0/GestionOrdinateurs.Shared.pdb
